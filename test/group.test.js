@@ -133,4 +133,3 @@ describe("TwoStep groups", function(){
     }, 10);
   })
 });
-
