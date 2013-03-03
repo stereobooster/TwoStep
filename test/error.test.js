@@ -1,15 +1,15 @@
 var exception = new Error("Catch me!");
 
 describe("TwoStep handles errors", function(){
-  it.skip("ok", function(done){
+  it("ok", function(done){
     var fulfill = sinon.spy();
     TwoStep(
       function () {
         fulfill("one");
-        var that = this;
+        var slot = this.slot();
         setTimeout(function () {
           fulfill("timeout");
-          that.pass(exception);
+          slot(exception);
         }, 0);
       },
       function (err) {
