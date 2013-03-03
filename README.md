@@ -17,8 +17,12 @@ It shows how simple and obvious JavaScript APIs can be.
 ## more examples of good JavaScript APIs
 
 ### [mocha](https://github.com/visionmedia/mocha/blob/master/lib/runnable.js)
-It detects if callback is synchronous or asynchronous based on number of arguments.
+ - It detects if callback is synchronous or asynchronous based on number of arguments
+
+### [underscorejs chain](http://underscorejs.org/#chain)
+ - Chainable DSL
 
 ## TODO
 
- - add tests
+ - make all tests pass
+ - add timeouts as in `mocha runnable`
