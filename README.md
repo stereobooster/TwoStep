@@ -25,4 +25,5 @@ It shows how simple and obvious JavaScript APIs can be.
 ## TODO
 
  - make all tests pass
+ - use `docco`
  - add timeouts as in `mocha runnable`
