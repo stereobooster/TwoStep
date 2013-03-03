@@ -1,0 +1,17 @@
+{
+    "name": "TwoStep"
+  , "repo": "stereobooster/TwoStep"
+  , "version": "0.0.1"
+  , "description": "Better step"
+  , "license": "MIT"
+  , "keywords": [
+        "step"
+      , "async"
+    ]
+  , "main": "lib/TwoStep.js"
+  , "scripts": [
+        "lib/TwoStep.js"
+    ]
+  , "dependencies": {}
+  , "development": {}
+}

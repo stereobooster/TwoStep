@@ -1,0 +1,35 @@
+{
+  "author": "stereobooster <stereobooster@gmail.com>",
+  "name": "TwoStep",
+  "description": "Better step",
+  "keywords": [ "step", "async" ],
+  "homepage": "https://github.com/stereobooster/TwoStep",
+  "license": "MIT",
+  "contributors": [],
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stereobooster/TwoStep"
+  },
+  "bugs": {
+    "url": "https://github.com/stereobooster/TwoStep/issues"
+  },
+  "main": "./lib/TwoStep",
+  "scripts": {
+    "test": "node_modules/.bin/mocha",
+    "blanket": {
+      "pattern": "/lib/TwoStep.js"
+    }
+  },
+  "engines": {
+    "node": ">= 0.4.0"
+  },
+  "dependencies": {},
+  "devDependencies": {
+	"chai": "*",
+    "mocha": "*",
+    "blanket": ">= 1.0.3",
+    "sinon": "*",
+    "sinon-chai": "*"
+  }
+}
