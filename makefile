@@ -1,11 +1,17 @@
 test: 
-	mocha
+	node_modules/.bin/mocha
 
 coverage:
-	mocha -R html-cov > docs/coverage.html
+	node_modules/.bin/mocha -R html-cov > docs/coverage.html
 
-documentation: 
+docco: 
 	docco lib/*.js
+
+test-doc:
+	mocha -R doc > docs/doc.html
+
+jshint:
+	jshint {lib,test}/*.js
 
 clean:
 	rm -rf docs

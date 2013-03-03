@@ -26,5 +26,5 @@ describe("TwoStep handles errors", function(){
         done();
       }
     );
-  })
-})
+  });
+});

@@ -1,7 +1,7 @@
 var selfText = fs.readFileSync(__filename, "utf8"),
     etcText = fs.readFileSync("/etc/passwd", "utf8");
 
-describe("TwoTwoStep parallel", function(){
+describe("TwoStep parallel", function(){
   it.skip("ok", function(done){
     var fulfill = sinon.spy();
     TwoStep(
@@ -19,7 +19,7 @@ describe("TwoTwoStep parallel", function(){
         done();
       }
     );
-  })
+  });
 
   it("Test lock functionality with N parallel calls", function(done){
     var fulfill = sinon.spy();
@@ -30,23 +30,25 @@ describe("TwoTwoStep parallel", function(){
       function makeParallelCalls(err, num) {
         if (err) done(err);
         fulfill(num);
-        setTimeout((function(callback) { return function() { callback(null, 1); } })(this.slot()), 100);
-        this.slot()(null, 2);
-        setTimeout((function(callback) { return function() { callback(null, 3); } })(this.slot()), 0);
+        var p1 = this.slot(), p2 = this.slot(), p3 = this.slot();
+        setTimeout(function(callback) { p1(null, 1); }, 100);
+        p2(null, 2);
+        setTimeout(function(callback) { p3(null, 3); }, 0);
       },
       function parallelResults(err, one, two, three) {
         if (err) done(err);
         fulfill(one, two, three);
-        return 2
+        this.pass(2);
       },
       function terminate(err, num) {
         if (err) done(err);
+        num.should.equal(2);
         fulfill.callCount.should.be.equal(2);
         fulfill.should.be.calledWith(1);
         fulfill.should.be.calledWith(1,2,3);
         done();
       }
-    )
+    );
   });
 
   it("Test lock functionality with parallel calls with delay", function(done){
@@ -78,7 +80,7 @@ describe("TwoTwoStep parallel", function(){
         done();
       }
     );
-  })
+  });
 
   it("Test lock functionality with parallel calls which return immediately", function(done){
     var fulfill = sinon.spy();
@@ -109,5 +111,5 @@ describe("TwoTwoStep parallel", function(){
         done();
       }
     );
-  })
-})
+  });
+});

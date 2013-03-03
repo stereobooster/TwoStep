@@ -30,7 +30,7 @@ describe("TwoStep groups", function(){
         done();
       }
     );    
-  })
+  });
 
   it.skip("When the group is empty, it should fire with an empty array", function(done){
     var fulfill = sinon.spy();
@@ -47,7 +47,7 @@ describe("TwoStep groups", function(){
         done();
       }
     );
-  })
+  });
 
   it("Test lock functionality with N sized groups", function(done){
     var fulfill = sinon.spy();
@@ -60,9 +60,9 @@ describe("TwoStep groups", function(){
         fulfill("test3: " + num);
         var group = this.makeGroup();
         
-        setTimeout(function() { group.slot()(null, 1) }, 100);
+        setTimeout(function() { group.slot()(null, 1); }, 100);
         group.slot()(null, 2);
-        setTimeout(function() { group.slot()(null, 3) }, 0);
+        setTimeout(function() { group.slot()(null, 3); }, 0);
       },
       function groupResults(err, results) {
         if (err) done(err);
@@ -75,7 +75,7 @@ describe("TwoStep groups", function(){
         done();
       }
     );
-  })
+  });
 
   it.skip("Test lock functionality with zero sized groups", function(done){
     var fulfill = sinon.spy();
@@ -100,7 +100,7 @@ describe("TwoStep groups", function(){
         done();
       }
     );
-  })
+  });
 
   it("Test lock functionality with groups which return immediately", function(done){
     var fulfill = sinon.spy();
@@ -131,5 +131,5 @@ describe("TwoStep groups", function(){
         }
       );
     }, 10);
-  })
+  });
 });

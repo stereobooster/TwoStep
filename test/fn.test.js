@@ -17,6 +17,5 @@ describe("TwoStep can create function to be executed later", function(){
       selfText.toUpperCase(),should.equal(result);
       done();
     });    
-  })
-})
-
+  });
+});

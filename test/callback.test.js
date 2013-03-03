@@ -23,5 +23,5 @@ describe("TwoStep passing async results and sync results to the next layer", fun
         done();
       }
     );
-  })
-})
+  });
+});
